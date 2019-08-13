@@ -1,0 +1,34 @@
+﻿namespace StackExchangeParser.Configuration.TypeConverters.Posts
+{
+    using AutoMapper;
+    using EF.Entities;
+
+    public class EFPostToDomainPost : ITypeConverter<EF.Entities.Post, Domain.Models.Post>
+    {
+        public Domain.Models.Post Convert(Post source, Domain.Models.Post destination, ResolutionContext context)
+        {
+            destination = new Domain.Models.Post
+            {
+                AnswerCount = source.AnswerCount,
+                Body = source.Body,
+                ClosedDate = source.ClosedDate,
+                CommentCount = source.CommentCount,
+                CreationDate = source.CreationDate,
+                FavoriteCount = source.FavoriteCount,
+                Id = source.Id,
+                LastActivityDate = source.LastActivityDate,
+                LastEditDate = source.LastEditDate,
+                LastEditorDisplayName = source.LastEditorDisplayName,
+                LastEditorUserId = source.LastEditorUserId,
+                OwnerDisplayName = source.OwnerDisplayName,
+                OwnerUserId = source.OwnerUserId,
+                PostTypeId = source.PostTypeId,
+                Score = source.Score,
+                Title = source.Title,
+                Type = source.Type,
+                ViewCount = source.ViewCount
+            };
+            return destination;
+        }
+    }
+}
