@@ -14,6 +14,6 @@
         Task<ICollection<Tag>> TagsAsync(CancellationToken cancellationToken = default);
         Task<ICollection<Badge>> BadgesAsync(CancellationToken cancellationToken = default);
         Task<ICollection<PostHistory>> PostHistoriesAsync(CancellationToken cancellationToken = default);
-        Task<ICollection<Vote>> GetVotesAsync(CancellationToken cancellationToken = default);
+        Task<ICollection<Vote>> VotesAsync(CancellationToken cancellationToken = default);
     }
 }

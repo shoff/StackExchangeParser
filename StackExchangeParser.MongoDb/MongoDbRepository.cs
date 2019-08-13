@@ -146,8 +146,18 @@
                 await this.database.DropCollectionAsync(typeof(MongoPost).Name, cancellationToken)
                     .ConfigureAwait(false);
             }
-            await PostCollection.InsertManyAsync(posts.Map(m => 
-                    this.mapper.Map<MongoPost>(m)).ToList(), 
+
+            var mongoPosts = new List<MongoPost>();
+
+            foreach (var post in posts)
+            {
+                var mongoPost = this.mapper.Map<MongoPost>(post);
+                var comments = this.CommentCollection.AsQueryable().Where(c => c.PostId == mongoPost.Id).OrderBy(c=>c.Id).ToList();
+                comments.Each(c => c.User = this.UserCollection.AsQueryable().FirstOrDefault(u=>u.Id == c.UserId));
+                mongoPosts.Add(mongoPost);
+            }
+
+            await PostCollection.InsertManyAsync(mongoPosts, 
                 this.insertManyOptions, cancellationToken);
         }
 

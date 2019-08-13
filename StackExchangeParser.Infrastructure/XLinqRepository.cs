@@ -140,7 +140,7 @@
 
         public Task<ICollection<Post>> PostsAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return this.postParser.ParseAsync(cancellationToken);
         }
 
         public Task<ICollection<User>> UsersAsync(CancellationToken cancellationToken = default)
@@ -150,27 +150,27 @@
 
         public Task<ICollection<Comment>> CommentsAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return this.commentParser.ParseAsync(cancellationToken);
         }
 
         public Task<ICollection<Tag>> TagsAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return this.tagParser.ParseAsync(cancellationToken);
         }
 
         public Task<ICollection<Badge>> BadgesAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return this.badgeParser.ParseAsync(cancellationToken);
         }
 
         public Task<ICollection<PostHistory>> PostHistoriesAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return this.postHistoryParser.ParseAsync(cancellationToken);
         }
 
-        public Task<ICollection<Vote>> GetVotesAsync(CancellationToken cancellationToken = default)
+        public Task<ICollection<Vote>> VotesAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return this.voteParser.ParseAsync(cancellationToken);
         }
     }
 }

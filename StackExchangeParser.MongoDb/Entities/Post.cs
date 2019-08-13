@@ -1,6 +1,7 @@
 ﻿namespace StackExchangeParser.MongoDb.Entities
 {
     using System;
+    using System.Collections.Generic;
 
     public class Post
     {
@@ -23,5 +24,7 @@
         public virtual DateTime? ClosedDate { get; set; }
         public virtual long? LastEditorUserId { get; set; }
         public virtual int AnswerCount { get; set; }
+
+        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
     }
 }

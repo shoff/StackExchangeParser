@@ -28,25 +28,37 @@
             var users = await this.linqRepository.UsersAsync(cancellationToken).ConfigureAwait(false);
             this.logger.LogInformation("sending users to mongo");
             await this.mongoDbRepository.AddUsersAsync(users, cancellationToken).ConfigureAwait(false);
+            
+            this.logger.LogInformation("Fetching and parsing xml posts.");
+            var posts = await this.linqRepository.PostsAsync(cancellationToken).ConfigureAwait(false);
+            this.logger.LogInformation("sending posts to mongo");
+            await this.mongoDbRepository.AddPostsAsync(posts, cancellationToken).ConfigureAwait(false);
+
+            this.logger.LogInformation("Fetching and parsing xml comments.");
+            var comments = await this.linqRepository.CommentsAsync(cancellationToken).ConfigureAwait(false);
+            this.logger.LogInformation("sending comments to mongo");
+            await this.mongoDbRepository.AddCommentsAsync(comments, cancellationToken).ConfigureAwait(false);
+
+            this.logger.LogInformation("Fetching and parsing xml tags.");
+            var tags = await this.linqRepository.TagsAsync(cancellationToken).ConfigureAwait(false);
+            this.logger.LogInformation("sending tags to mongo");
+            await this.mongoDbRepository.AddTagsAsync(tags, cancellationToken).ConfigureAwait(false);
+
+            this.logger.LogInformation("Fetching and parsing xml votes.");
+            var votes = await this.linqRepository.VotesAsync(cancellationToken).ConfigureAwait(false);
+            this.logger.LogInformation("sending votes to mongo");
+            await this.mongoDbRepository.AddVotesAsync(votes, cancellationToken).ConfigureAwait(false);
+
+            this.logger.LogInformation("Fetching and parsing xml badges.");
+            var badges = await this.linqRepository.BadgesAsync(cancellationToken).ConfigureAwait(false);
+            this.logger.LogInformation("sending badges to mongo");
+            await this.mongoDbRepository.AddBadgesAsync(badges, cancellationToken).ConfigureAwait(false);
 
         }
 
         public void Process()
-        { 
-            this.logger.LogInformation("Fetching and parsing xml posts.");
-            var posts = this.linqRepository.Posts();
+        {
 
-            this.logger.LogInformation("Fetching and parsing xml comments.");
-            var comments = this.linqRepository.Comments();
-
-            this.logger.LogInformation("Fetching and parsing xml tags.");
-            var tags = this.linqRepository.Tags();
-
-            this.logger.LogInformation("Fetching and parsing xml votes.");
-            var votes = this.linqRepository.Votes();
-
-            this.logger.LogInformation("Fetching and parsing xml badges.");
-            var badges = this.linqRepository.Badges();
 
         }
     }
