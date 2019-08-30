@@ -25,7 +25,7 @@
             this.path = options.Value.Path;
         }
 
-        public async Task<ICollection<Tag>> ParseAsync(CancellationToken cancellationToken = default)
+        public async Task<ICollection<ITag>> ParseAsync(CancellationToken cancellationToken = default)
         {
             var tagXml = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Tags.xml";
             this.logger.LogInformation($"Setting Tags.xml path to {tagXml}");
@@ -66,7 +66,7 @@
             return tags.ToArray();
         }
 
-        public ICollection<Tag> Parse()
+        public ICollection<ITag> Parse()
         {
             var tagXml = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Tags.xml";
             this.logger.LogInformation($"Setting Tags.xml path to {tagXml}");

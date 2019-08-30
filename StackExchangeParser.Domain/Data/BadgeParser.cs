@@ -25,7 +25,7 @@
             this.path = options.Value.Path;
         }
 
-        public async Task<ICollection<Badge>> ParseAsync(CancellationToken cancellationToken = default)
+        public async Task<ICollection<IBadge>> ParseAsync(CancellationToken cancellationToken = default)
         {
             var badgeXml = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Badges.xml";
             this.logger.LogInformation($"Setting Badges.xml path to {badgeXml}");
@@ -64,7 +64,7 @@
             return badges.ToArray();
         }
 
-        public ICollection<Badge> Parse()
+        public ICollection<IBadge> Parse()
         {
             var badgeXml = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Badges.xml";
             this.logger.LogInformation($"Setting Badges.xml path to {badgeXml}");

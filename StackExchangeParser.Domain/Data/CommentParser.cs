@@ -26,7 +26,7 @@
             this.path = options.Value.Path;
         }
 
-        public async Task<ICollection<Comment>> ParseAsync(CancellationToken cancellationToken = default)
+        public async Task<ICollection<IComment>> ParseAsync(CancellationToken cancellationToken = default)
         {
             var commentsXMl = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Comments.xml";
             this.logger.LogInformation($"Setting Comments.xml path to {commentsXMl}");
@@ -65,7 +65,7 @@
             return comments.ToArray();
         }
 
-        public ICollection<Comment> Parse()
+        public ICollection<IComment> Parse()
         {
             var commentsXMl = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Comments.xml";
             this.logger.LogInformation($"Setting Comments.xml path to {commentsXMl}");

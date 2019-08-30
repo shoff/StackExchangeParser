@@ -9,7 +9,7 @@
         public StackExchangeUserProfile()
         {
             this.CreateMap<EF.Entities.User, User>().ConvertUsing<EFUserToDomainUser>();
-            this.CreateMap<MongoDb.Entities.User, User>().ConvertUsing<MongoUserToDomainUser>();
+            this.CreateMap<MongoDb.Entities.User, IUser>().ConvertUsing<MongoUserToDomainUser>();
             this.CreateMap<User, EF.Entities.User>().ConvertUsing<DomainUserToEFUser>();
             this.CreateMap<User, MongoDb.Entities.User>().ConvertUsing<DomainUserToMongoUser>();
         }

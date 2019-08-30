@@ -2,9 +2,10 @@
 {
     using AutoMapper;
 
-    public class MongoDbBadgeToDomain : ITypeConverter<MongoDb.Entities.Badge, Domain.Models.Badge>
+    public class MongoDbBadgeToDomain : ITypeConverter<MongoDb.Entities.Badge, Domain.Models.IBadge>
     {
-        public Domain.Models.Badge Convert(MongoDb.Entities.Badge source, Domain.Models.Badge destination, ResolutionContext context)
+        // ReSharper disable once RedundantAssignment
+        public Domain.Models.IBadge Convert(MongoDb.Entities.Badge source, Domain.Models.IBadge destination, ResolutionContext context)
         {
             destination = new Domain.Models.Badge
             {

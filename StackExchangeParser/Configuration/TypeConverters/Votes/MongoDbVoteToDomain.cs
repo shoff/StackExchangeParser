@@ -2,9 +2,9 @@
 {
     using AutoMapper;
 
-    public class MongoDbVoteToDomain : ITypeConverter<MongoDb.Entities.Vote, Domain.Models.Vote>
+    public class MongoDbVoteToDomain : ITypeConverter<MongoDb.Entities.Vote, Domain.Models.IVote>
     {
-        public Domain.Models.Vote Convert(MongoDb.Entities.Vote source, Domain.Models.Vote destination, ResolutionContext context)
+        public Domain.Models.IVote Convert(MongoDb.Entities.Vote source, Domain.Models.IVote destination, ResolutionContext context)
         {
             destination = new Domain.Models.Vote
             {

@@ -1,5 +1,6 @@
 ﻿namespace StackExchangeParser.Configuration
 {
+    using Domain;
     using Domain.Data;
     using Infrastructure;
     using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +19,7 @@
             services.AddTransient<IUserParser, UserParser>();
             services.AddTransient<IVoteParser, VoteParser>();
 
-            services.AddSingleton<IMongoDbRepository, MongoDbRepository>();
+            services.AddSingleton<IStackExchangeRepository, MongoDbRepository>();
             services.AddTransient<IXLinqRepository, XLinqRepository>();
 
             services.AddTransient<IMLData, MLData>();

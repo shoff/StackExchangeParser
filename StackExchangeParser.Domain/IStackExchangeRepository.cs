@@ -1,16 +1,24 @@
 ﻿namespace StackExchangeParser.Domain
 {
     using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Models;
 
     public interface IStackExchangeRepository
     {
-        ICollection<Post> Posts();
-        ICollection<User> Users();
-        ICollection<Comment> Comments();
-        ICollection<Tag> Tags();
-        ICollection<Badge> Badges();
-        ICollection<PostHistory> PostHistories();
-        ICollection<Vote> Votes();
+        ICollection<IPost> Posts();
+        ICollection<IUser> Users();
+        ICollection<IComment> Comments();
+        ICollection<ITag> Tags();
+        ICollection<IBadge> Badges();
+        ICollection<IPostHistory> PostHistories();
+        ICollection<IVote> Votes();
+        Task AddUsersAsync(ICollection<IUser> users, CancellationToken cancellationToken);
+        Task AddPostsAsync(ICollection<IPost> posts, CancellationToken cancellationToken);
+        Task AddCommentsAsync(ICollection<IComment> comments, CancellationToken cancellationToken);
+        Task AddTagsAsync(ICollection<ITag> tags, CancellationToken cancellationToken);
+        Task AddVotesAsync(ICollection<IVote> votes, CancellationToken cancellationToken);
+        Task AddBadgesAsync(ICollection<IBadge> badges, CancellationToken cancellationToken);
     }
 }

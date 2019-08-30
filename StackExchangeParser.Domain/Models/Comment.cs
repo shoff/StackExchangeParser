@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Comment
+    public class Comment : IComment
     {
         public virtual long Id { get; set; }
         public virtual long? PostId { get; set; }

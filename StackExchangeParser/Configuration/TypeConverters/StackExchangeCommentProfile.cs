@@ -11,7 +11,7 @@
             this.CreateMap<Domain.Models.Comment, EF.Entities.Comment>().ConvertUsing<DomainCommentToEFComment>();
             this.CreateMap<Domain.Models.Comment, MongoDb.Entities.Comment>().ConvertUsing<DomainCommentToMongoComment>();
             this.CreateMap<EF.Entities.Comment, Domain.Models.Comment>().ConvertUsing<EFCommentToDomainComment>();
-            this.CreateMap<MongoDb.Entities.Comment, Domain.Models.Comment>().ConvertUsing<MongoCommentToDomainComment>();
+            this.CreateMap<MongoDb.Entities.Comment, Domain.Models.IComment>().ConvertUsing<MongoCommentToDomainComment>();
         }
     }
 }

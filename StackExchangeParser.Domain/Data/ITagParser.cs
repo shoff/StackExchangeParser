@@ -7,7 +7,7 @@
 
     public interface ITagParser
     {
-        ICollection<Tag> Parse();
-        Task<ICollection<Tag>> ParseAsync(CancellationToken cancellationToken = default);
+        ICollection<ITag> Parse();
+        Task<ICollection<ITag>> ParseAsync(CancellationToken cancellationToken = default);
     }
 }

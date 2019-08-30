@@ -2,9 +2,9 @@
 {
     using AutoMapper;
 
-    public class MongoCommentToDomainComment : ITypeConverter<MongoDb.Entities.Comment, Domain.Models.Comment>
+    public class MongoCommentToDomainComment : ITypeConverter<MongoDb.Entities.Comment, Domain.Models.IComment>
     {
-        public Domain.Models.Comment Convert(MongoDb.Entities.Comment source,  Domain.Models.Comment destination, ResolutionContext context)
+        public Domain.Models.IComment Convert(MongoDb.Entities.Comment source,  Domain.Models.IComment destination, ResolutionContext context)
         {
             destination = new Domain.Models.Comment
             {

@@ -7,7 +7,7 @@
 
     public interface IBadgeParser
     {
-        ICollection<Badge> Parse();
-        Task<ICollection<Badge>> ParseAsync(CancellationToken cancellationToken = default);
+        ICollection<IBadge> Parse();
+        Task<ICollection<IBadge>> ParseAsync(CancellationToken cancellationToken = default);
     }
 }

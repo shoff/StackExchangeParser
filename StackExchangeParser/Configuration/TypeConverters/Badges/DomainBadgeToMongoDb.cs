@@ -2,9 +2,9 @@
 {
     using AutoMapper;
 
-    public class DomainBadgeToMongoDb : ITypeConverter<Domain.Models.Badge, MongoDb.Entities.Badge>
+    public class DomainBadgeToMongoDb : ITypeConverter<Domain.Models.IBadge, MongoDb.Entities.Badge>
     {
-        public MongoDb.Entities.Badge Convert(Domain.Models.Badge source, MongoDb.Entities.Badge destination, ResolutionContext context)
+        public MongoDb.Entities.Badge Convert(Domain.Models.IBadge source, MongoDb.Entities.Badge destination, ResolutionContext context)
         {
             destination = new MongoDb.Entities.Badge
             {

@@ -25,7 +25,7 @@
             this.path = options.Value.Path;
         }
 
-        public async Task<ICollection<User>> ParseAsync(CancellationToken cancellationToken = default)
+        public async Task<ICollection<IUser>> ParseAsync(CancellationToken cancellationToken = default)
         {
             var users = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Users.xml";
             this.logger.LogInformation($"Setting Users.xml path to {users}");
@@ -71,7 +71,7 @@
             return userItems.ToArray();
         }
 
-        public ICollection<User> Parse()
+        public ICollection<IUser> Parse()
         {
             var users = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Users.xml";
             this.logger.LogInformation($"Setting Users.xml path to {users}");

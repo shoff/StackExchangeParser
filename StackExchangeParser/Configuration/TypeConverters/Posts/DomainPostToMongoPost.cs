@@ -3,9 +3,9 @@
     using AutoMapper;
     using Domain.Models;
 
-    public class DomainPostToMongoPost : ITypeConverter<Post, MongoDb.Entities.Post>
+    public class DomainPostToMongoPost : ITypeConverter<IPost, MongoDb.Entities.Post>
     {
-        public MongoDb.Entities.Post Convert(Post source, MongoDb.Entities.Post destination, ResolutionContext context)
+        public MongoDb.Entities.Post Convert(IPost source, MongoDb.Entities.Post destination, ResolutionContext context)
         {
             destination = new MongoDb.Entities.Post
             {

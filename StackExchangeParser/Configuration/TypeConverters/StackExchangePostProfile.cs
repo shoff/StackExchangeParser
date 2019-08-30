@@ -11,7 +11,7 @@
             this.CreateMap<Post, EF.Entities.Post>().ConvertUsing<DomainPostToEFPost>();
             this.CreateMap<Post, MongoDb.Entities.Post>().ConvertUsing<DomainPostToMongoPost>();
             this.CreateMap<EF.Entities.Post, Post>().ConvertUsing<EFPostToDomainPost>();
-            this.CreateMap<MongoDb.Entities.Post, Post>().ConvertUsing<MongoPostToDomainPost>();
+            this.CreateMap<MongoDb.Entities.Post, IPost>().ConvertUsing<MongoPostToDomainPost>();
         }
     }
 }

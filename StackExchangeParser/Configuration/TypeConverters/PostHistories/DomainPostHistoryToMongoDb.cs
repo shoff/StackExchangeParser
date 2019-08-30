@@ -2,9 +2,9 @@
 {
     using AutoMapper;
 
-    public class DomainPostHistoryToMongoDb : ITypeConverter<Domain.Models.PostHistory, MongoDb.Entities.PostHistory>
+    public class DomainPostHistoryToMongoDb : ITypeConverter<Domain.Models.IPostHistory, MongoDb.Entities.PostHistory>
     {
-        public MongoDb.Entities.PostHistory Convert(Domain.Models.PostHistory source, MongoDb.Entities.PostHistory destination, ResolutionContext context)
+        public MongoDb.Entities.PostHistory Convert(Domain.Models.IPostHistory source, MongoDb.Entities.PostHistory destination, ResolutionContext context)
         {
             destination = new MongoDb.Entities.PostHistory
             {

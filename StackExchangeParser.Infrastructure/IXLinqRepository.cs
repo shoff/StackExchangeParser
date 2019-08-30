@@ -3,17 +3,16 @@
     using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
-    using Domain;
     using Domain.Models;
 
-    public interface IXLinqRepository : IStackExchangeRepository
+    public interface IXLinqRepository
     {
-        Task<ICollection<Post>> PostsAsync(CancellationToken cancellationToken = default);
-        Task<ICollection<User>> UsersAsync(CancellationToken cancellationToken = default);
-        Task<ICollection<Comment>> CommentsAsync(CancellationToken cancellationToken = default);
-        Task<ICollection<Tag>> TagsAsync(CancellationToken cancellationToken = default);
-        Task<ICollection<Badge>> BadgesAsync(CancellationToken cancellationToken = default);
-        Task<ICollection<PostHistory>> PostHistoriesAsync(CancellationToken cancellationToken = default);
-        Task<ICollection<Vote>> VotesAsync(CancellationToken cancellationToken = default);
+        Task<ICollection<IPost>> PostsAsync(CancellationToken cancellationToken = default);
+        Task<ICollection<IUser>> UsersAsync(CancellationToken cancellationToken = default);
+        Task<ICollection<IComment>> CommentsAsync(CancellationToken cancellationToken = default);
+        Task<ICollection<ITag>> TagsAsync(CancellationToken cancellationToken = default);
+        Task<ICollection<IBadge>> BadgesAsync(CancellationToken cancellationToken = default);
+        Task<ICollection<IPostHistory>> PostHistoriesAsync(CancellationToken cancellationToken = default);
+        Task<ICollection<IVote>> VotesAsync(CancellationToken cancellationToken = default);
     }
 }

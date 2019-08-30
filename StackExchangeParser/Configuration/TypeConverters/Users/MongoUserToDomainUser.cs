@@ -3,9 +3,9 @@
     using AutoMapper;
     using Domain.Models;
 
-    public class MongoUserToDomainUser : ITypeConverter<MongoDb.Entities.User, User>
+    public class MongoUserToDomainUser : ITypeConverter<MongoDb.Entities.User, IUser>
     {
-        public User Convert(MongoDb.Entities.User source, User destination, ResolutionContext context)
+        public IUser Convert(MongoDb.Entities.User source, IUser destination, ResolutionContext context)
         {
             destination = new User
             {

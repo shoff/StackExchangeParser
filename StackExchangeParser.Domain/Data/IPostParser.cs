@@ -7,7 +7,7 @@
 
     public interface IPostParser
     {
-        ICollection<Post> Parse();
-        Task<ICollection<Post>> ParseAsync(CancellationToken cancellationToken = default);
+        ICollection<IPost> Parse();
+        Task<ICollection<IPost>> ParseAsync(CancellationToken cancellationToken = default);
     }
 }

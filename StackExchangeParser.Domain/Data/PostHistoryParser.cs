@@ -25,7 +25,7 @@
             this.path = options.Value.Path;
         }
 
-        public async Task<ICollection<PostHistory>> ParseAsync(CancellationToken cancellationToken = default)
+        public async Task<ICollection<IPostHistory>> ParseAsync(CancellationToken cancellationToken = default)
         {
             var posts = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/PostHistory.xml";
 
@@ -69,7 +69,7 @@
         }
 
 
-        public ICollection<PostHistory> Parse()
+        public ICollection<IPostHistory> Parse()
         {
             var posts = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/PostHistory.xml";
 

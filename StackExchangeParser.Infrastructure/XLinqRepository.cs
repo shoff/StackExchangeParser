@@ -39,7 +39,7 @@
             this.voteParser = voteParser;
         }
 
-        public ICollection<Post> Posts()
+        public ICollection<IPost> Posts()
         {
             try
             {
@@ -53,7 +53,7 @@
                 throw;
             }
         }
-        public ICollection<User> Users()
+        public ICollection<IUser> Users()
         {
             try
             {
@@ -67,7 +67,7 @@
                 throw;
             }
         }
-        public ICollection<Comment> Comments()
+        public ICollection<IComment> Comments()
         {
             try
             {
@@ -81,7 +81,7 @@
                 throw;
             }
         }
-        public ICollection<Vote> Votes()
+        public ICollection<IVote> Votes()
         {
             try
             {
@@ -95,7 +95,7 @@
                 throw;
             }
         }
-        public ICollection<Tag> Tags()
+        public ICollection<ITag> Tags()
         {
             try
             {
@@ -109,7 +109,7 @@
                 throw;
             }
         }
-        public ICollection<Badge> Badges()
+        public ICollection<IBadge> Badges()
         {
             try
             {
@@ -123,7 +123,7 @@
                 throw;
             }
         }
-        public ICollection<PostHistory> PostHistories()
+        public ICollection<IPostHistory> PostHistories()
         {
             try
             {
@@ -138,37 +138,37 @@
             }
         }
 
-        public Task<ICollection<Post>> PostsAsync(CancellationToken cancellationToken = default)
+        public Task<ICollection<IPost>> PostsAsync(CancellationToken cancellationToken = default)
         {
             return this.postParser.ParseAsync(cancellationToken);
         }
 
-        public Task<ICollection<User>> UsersAsync(CancellationToken cancellationToken = default)
+        public Task<ICollection<IUser>> UsersAsync(CancellationToken cancellationToken)
         {
             return this.userParser.ParseAsync(cancellationToken);
         }
 
-        public Task<ICollection<Comment>> CommentsAsync(CancellationToken cancellationToken = default)
+        public Task<ICollection<IComment>> CommentsAsync(CancellationToken cancellationToken = default)
         {
             return this.commentParser.ParseAsync(cancellationToken);
         }
 
-        public Task<ICollection<Tag>> TagsAsync(CancellationToken cancellationToken = default)
+        public Task<ICollection<ITag>> TagsAsync(CancellationToken cancellationToken = default)
         {
             return this.tagParser.ParseAsync(cancellationToken);
         }
 
-        public Task<ICollection<Badge>> BadgesAsync(CancellationToken cancellationToken = default)
+        public Task<ICollection<IBadge>> BadgesAsync(CancellationToken cancellationToken = default)
         {
             return this.badgeParser.ParseAsync(cancellationToken);
         }
 
-        public Task<ICollection<PostHistory>> PostHistoriesAsync(CancellationToken cancellationToken = default)
+        public Task<ICollection<IPostHistory>> PostHistoriesAsync(CancellationToken cancellationToken = default)
         {
             return this.postHistoryParser.ParseAsync(cancellationToken);
         }
 
-        public Task<ICollection<Vote>> VotesAsync(CancellationToken cancellationToken = default)
+        public Task<ICollection<IVote>> VotesAsync(CancellationToken cancellationToken = default)
         {
             return this.voteParser.ParseAsync(cancellationToken);
         }

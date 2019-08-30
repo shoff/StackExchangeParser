@@ -7,7 +7,7 @@
 
     public interface ICommentParser
     {
-        ICollection<Comment> Parse();
-        Task<ICollection<Comment>> ParseAsync(CancellationToken cancellationToken = default);
+        ICollection<IComment> Parse();
+        Task<ICollection<IComment>> ParseAsync(CancellationToken cancellationToken = default);
     }
 }

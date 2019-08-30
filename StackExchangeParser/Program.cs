@@ -44,9 +44,7 @@
 
             await parser.ProcessDataAsync()
                 .ConfigureAwait(true);
-
-            ((ExchangeParser) parser).Process();
-
+            
             Log.Information("Completed parsing resources.");
 
             Console.WriteLine("Press any key to exit.");

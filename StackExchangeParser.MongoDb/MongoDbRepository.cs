@@ -23,9 +23,8 @@
     using MongoPostHistory = Entities.PostHistory;
     using MongoVote = Entities.Vote;
     using MongoComment = Entities.Comment;
-    using Tag = Domain.Models.Tag;
 
-    public class MongoDbRepository : IStackExchangeRepository, IMongoDbRepository
+    public class MongoDbRepository : IStackExchangeRepository
     {
         private readonly InsertOneOptions insertOneOptions;
         private readonly InsertManyOptions insertManyOptions;
@@ -88,42 +87,42 @@
         private IMongoCollection<MongoTag> TagCollection =>
             this.database.GetCollection<MongoTag>(typeof(MongoTag).Name);
 
-        public ICollection<User> Users()
+        public ICollection<IUser> Users()
         {
-            return this.mapper.ProjectTo<User>(UserCollection.AsQueryable()).ToList();
+            return this.mapper.ProjectTo<IUser>(UserCollection.AsQueryable()).ToList();
         }
 
-        public ICollection<Post> Posts()
+        public ICollection<IPost> Posts()
         {
-            return this.mapper.ProjectTo<Post>(PostCollection.AsQueryable()).ToList();
+            return this.mapper.ProjectTo<IPost>(PostCollection.AsQueryable()).ToList();
         }
 
-        public ICollection<Comment> Comments()
+        public ICollection<IComment> Comments()
         {
-            return this.mapper.ProjectTo<Comment>(CommentCollection.AsQueryable()).ToList();
+            return this.mapper.ProjectTo<IComment>(CommentCollection.AsQueryable()).ToList();
         }
 
-        public ICollection<Tag> Tags()
+        public ICollection<ITag> Tags()
         {
-            return this.mapper.ProjectTo<Tag>(TagCollection.AsQueryable()).ToList();
+            return this.mapper.ProjectTo<ITag>(TagCollection.AsQueryable()).ToList();
         }
 
-        public ICollection<Badge> Badges()
+        public ICollection<IBadge> Badges()
         {
-            return this.mapper.ProjectTo<Badge>(BadgeCollection.AsQueryable()).ToList();
+            return this.mapper.ProjectTo<IBadge>(BadgeCollection.AsQueryable()).ToList();
         }
 
-        public ICollection<PostHistory> PostHistories()
+        public ICollection<IPostHistory> PostHistories()
         {
-            return this.mapper.ProjectTo<PostHistory>(PostHistoryCollection.AsQueryable()).ToList();
+            return this.mapper.ProjectTo<IPostHistory>(PostHistoryCollection.AsQueryable()).ToList();
         }
 
-        public ICollection<Vote> Votes()
+        public ICollection<IVote> Votes()
         {
-            return this.mapper.ProjectTo<Vote>(VoteCollection.AsQueryable()).ToList();
+            return this.mapper.ProjectTo<IVote>(VoteCollection.AsQueryable()).ToList();
         }
 
-        public async Task AddUsersAsync(ICollection<User> users, CancellationToken cancellationToken = default)
+        public async Task AddUsersAsync(ICollection<IUser> users, CancellationToken cancellationToken)
         {
             Guard.IsNotNull(users, nameof(users));
             if (this.CollectionExists<MongoUser>())
@@ -137,7 +136,7 @@
                 this.insertManyOptions, cancellationToken);
         }
 
-        public async Task AddPostsAsync(ICollection<Post> posts, CancellationToken cancellationToken = default)
+        public async Task AddPostsAsync(ICollection<IPost> posts, CancellationToken cancellationToken)
         {
 
             Guard.IsNotNull(posts, nameof(posts));
@@ -161,7 +160,7 @@
                 this.insertManyOptions, cancellationToken);
         }
 
-        public async Task AddCommentsAsync(ICollection<Comment> comments, CancellationToken cancellationToken = default)
+        public async Task AddCommentsAsync(ICollection<IComment> comments, CancellationToken cancellationToken)
         {
             Guard.IsNotNull(comments, nameof(comments));
             if (this.CollectionExists<MongoComment>())
@@ -174,7 +173,7 @@
                 this.insertManyOptions, cancellationToken);
         }
 
-        public async Task AddTagsAsync(ICollection<Tag> tags, CancellationToken cancellationToken = default)
+        public async Task AddTagsAsync(ICollection<ITag> tags, CancellationToken cancellationToken)
         {
             Guard.IsNotNull(tags, nameof(tags));
             if (this.CollectionExists<MongoTag>())
@@ -187,7 +186,7 @@
                 this.insertManyOptions, cancellationToken);
         }
 
-        public async Task AddBadgesAsync(ICollection<Badge> badges, CancellationToken cancellationToken = default)
+        public async Task AddBadgesAsync(ICollection<IBadge> badges, CancellationToken cancellationToken)
         {
             Guard.IsNotNull(badges, nameof(badges));
             if (this.CollectionExists<MongoBadge>())
@@ -200,7 +199,7 @@
                 this.insertManyOptions, cancellationToken);
         }
 
-        public async Task AddPostHistoriesAsync(ICollection<PostHistory> postHistories, CancellationToken cancellationToken = default)
+        public async Task AddPostHistoriesAsync(ICollection<IPostHistory> postHistories, CancellationToken cancellationToken)
         {
             Guard.IsNotNull(postHistories, nameof(postHistories));
             if (this.CollectionExists<MongoPostHistory>())
@@ -213,7 +212,7 @@
                 this.insertManyOptions, cancellationToken);
         }
 
-        public async Task AddVotesAsync(ICollection<Vote> votes, CancellationToken cancellationToken = default)
+        public async Task AddVotesAsync(ICollection<IVote> votes, CancellationToken cancellationToken)
         {
             Guard.IsNotNull(votes, nameof(votes));
             if (this.CollectionExists<MongoPostHistory>())

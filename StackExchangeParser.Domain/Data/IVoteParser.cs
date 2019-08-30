@@ -7,8 +7,8 @@
 
     public interface IVoteParser
     {
-        ICollection<Vote> Parse();
-        Task<ICollection<Vote>> ParseAsync(CancellationToken cancellationToken = default);
+        ICollection<IVote> Parse();
+        Task<ICollection<IVote>> ParseAsync(CancellationToken cancellationToken = default);
 
     }
 }

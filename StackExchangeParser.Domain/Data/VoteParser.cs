@@ -25,7 +25,7 @@
             this.path = options.Value.Path;
         }
 
-        public async Task<ICollection<Vote>> ParseAsync(CancellationToken cancellationToken = default)
+        public async Task<ICollection<IVote>> ParseAsync(CancellationToken cancellationToken = default)
         {
             var voteXml = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Votes.xml";
             this.logger.LogInformation($"Setting Votes.xml path to {voteXml}");
@@ -60,7 +60,7 @@
             return votes.ToArray();
         }
 
-        public ICollection<Vote> Parse()
+        public ICollection<IVote> Parse()
         {
             var voteXml = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Votes.xml";
             this.logger.LogInformation($"Setting Votes.xml path to {voteXml}");

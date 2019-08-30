@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class PostHistory
+    public class PostHistory : IPostHistory
     {
         public virtual long Id { get; set; }
         public virtual int PostHistoryTypeId { get; set; }

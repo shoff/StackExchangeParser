@@ -26,7 +26,7 @@
             this.path = options.Value.Path;
         }
 
-        public async Task<ICollection<Post>> ParseAsync(CancellationToken cancellationToken = default)
+        public async Task<ICollection<IPost>> ParseAsync(CancellationToken cancellationToken = default)
         {
             var posts = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Posts.xml";
             this.logger.LogInformation($"Setting Posts.xml path to {posts}");
@@ -87,7 +87,7 @@
             return postItems.ToArray();
         }
 
-        public ICollection<Post> Parse()
+        public ICollection<IPost> Parse()
         {
             var posts = AppDomain.CurrentDomain.BaseDirectory + $"{this.path}/Posts.xml";
             this.logger.LogInformation($"Setting Posts.xml path to {posts}");

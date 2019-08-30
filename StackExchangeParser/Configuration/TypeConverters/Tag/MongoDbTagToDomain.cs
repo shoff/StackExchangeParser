@@ -2,8 +2,8 @@
 {
     using AutoMapper;
 
-    public class MongoDbTagToDomain : ITypeConverter<MongoDb.Entities.Tag, Domain.Models.Tag> {
-        public Domain.Models.Tag Convert(MongoDb.Entities.Tag source, Domain.Models.Tag destination, ResolutionContext context)
+    public class MongoDbTagToDomain : ITypeConverter<MongoDb.Entities.Tag, Domain.Models.ITag> {
+        public Domain.Models.ITag Convert(MongoDb.Entities.Tag source, Domain.Models.ITag destination, ResolutionContext context)
         {
             destination = new Domain.Models.Tag
             {

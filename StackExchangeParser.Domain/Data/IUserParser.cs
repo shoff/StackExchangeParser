@@ -7,7 +7,7 @@
 
     public interface IUserParser
     {
-        Task<ICollection<User>> ParseAsync(CancellationToken cancellationToken = default);
-        ICollection<User> Parse();
+        Task<ICollection<IUser>> ParseAsync(CancellationToken cancellationToken = default);
+        ICollection<IUser> Parse();
     }
 }

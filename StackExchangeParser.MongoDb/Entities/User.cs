@@ -1,8 +1,9 @@
 ﻿namespace StackExchangeParser.MongoDb.Entities
 {
     using System;
+    using Domain.Models;
 
-    public class User
+    public class User : IUser
     {
         public virtual long Id { get; set; }
         public virtual int Reputation { get; set; }

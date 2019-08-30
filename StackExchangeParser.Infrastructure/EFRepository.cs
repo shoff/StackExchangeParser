@@ -2,12 +2,14 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
     using AutoMapper;
     using Domain;
     using Domain.Models;
     using EF;
 
-    public class EFRepository : IStackExchangeRepository, IEFRepository
+    public class EFRepository : IStackExchangeRepository
     {
         private readonly IMapper mapper;
         private readonly StackExchangeDbContext dbContext;
@@ -20,39 +22,69 @@
             this.dbContext = dbContext;
         }
 
-        public ICollection<Post> Posts()
+        public ICollection<IPost> Posts()
         {
-            return this.mapper.ProjectTo<Domain.Models.Post>(this.dbContext.Posts).ToList();
+            return this.mapper.ProjectTo<Domain.Models.IPost>(this.dbContext.Posts).ToList();
         }
 
-        public ICollection<User> Users()
+        public Task AddUsersAsync(ICollection<IUser> users, CancellationToken cancellationToken)
         {
-            return this.mapper.ProjectTo<Domain.Models.User>(this.dbContext.Users).ToList();
+            throw new System.NotImplementedException();
         }
 
-        public ICollection<Comment> Comments()
+        public Task AddPostsAsync(ICollection<IPost> posts, CancellationToken cancellationToken)
         {
-            return this.mapper.ProjectTo<Domain.Models.Comment>(this.dbContext.Comments).ToList();
+            throw new System.NotImplementedException();
         }
 
-        public ICollection<Tag> Tags()
+        public Task AddCommentsAsync(ICollection<IComment> comments, CancellationToken cancellationToken)
         {
-            return this.mapper.ProjectTo<Domain.Models.Tag>(this.dbContext.Tags).ToList();
+            throw new System.NotImplementedException();
         }
 
-        public ICollection<Badge> Badges()
+        public Task AddTagsAsync(ICollection<ITag> tags, CancellationToken cancellationToken)
         {
-            return this.mapper.ProjectTo<Domain.Models.Badge>(this.dbContext.Badges).ToList();
+            throw new System.NotImplementedException();
         }
 
-        public ICollection<PostHistory> PostHistories()
+        public Task AddVotesAsync(ICollection<IVote> votes, CancellationToken cancellationToken)
         {
-            return this.mapper.ProjectTo<Domain.Models.PostHistory>(this.dbContext.PostHistories).ToList();
+            throw new System.NotImplementedException();
         }
 
-        public ICollection<Vote> Votes()
+        public Task AddBadgesAsync(ICollection<IBadge> badges, CancellationToken cancellationToken)
         {
-            return this.mapper.ProjectTo<Domain.Models.Vote>(this.dbContext.Votes).ToList();
+            throw new System.NotImplementedException();
+        }
+
+        public ICollection<IUser> Users()
+        {
+            return this.mapper.ProjectTo<Domain.Models.IUser>(this.dbContext.Users).ToList();
+        }
+
+        public ICollection<IComment> Comments()
+        {
+            return this.mapper.ProjectTo<Domain.Models.IComment>(this.dbContext.Comments).ToList();
+        }
+
+        public ICollection<ITag> Tags()
+        {
+            return this.mapper.ProjectTo<Domain.Models.ITag>(this.dbContext.Tags).ToList();
+        }
+
+        public ICollection<IBadge> Badges()
+        {
+            return this.mapper.ProjectTo<Domain.Models.IBadge>(this.dbContext.Badges).ToList();
+        }
+
+        public ICollection<IPostHistory> PostHistories()
+        {
+            return this.mapper.ProjectTo<Domain.Models.IPostHistory>(this.dbContext.PostHistories).ToList();
+        }
+
+        public ICollection<IVote> Votes()
+        {
+            return this.mapper.ProjectTo<Domain.Models.IVote>(this.dbContext.Votes).ToList();
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Vote
+    public class Vote : IVote
     {
         public virtual long Id { get; set; }
         public virtual long? PostId { get; set; }

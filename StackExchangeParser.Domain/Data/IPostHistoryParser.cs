@@ -7,7 +7,7 @@
 
     public interface IPostHistoryParser
     {
-        ICollection<PostHistory> Parse();
-        Task<ICollection<PostHistory>> ParseAsync(CancellationToken cancellationToken = default);
+        ICollection<IPostHistory> Parse();
+        Task<ICollection<IPostHistory>> ParseAsync(CancellationToken cancellationToken = default);
     }
 }

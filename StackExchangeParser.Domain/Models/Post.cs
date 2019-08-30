@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Post
+    public class Post : IPost
     {
         public virtual long Id { get; set; }
         public virtual int PostTypeId { get; set; }

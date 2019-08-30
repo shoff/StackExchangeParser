@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Badge
+    public class Badge : IBadge
     {
         public virtual long Id { get; set; }
         public virtual long? UserId { get; set; }
