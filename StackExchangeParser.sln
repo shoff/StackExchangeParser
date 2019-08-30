@@ -5,21 +5,23 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser", "StackExchangeParser\StackExchangeParser.csproj", "{A8DE1064-A44D-41FB-874C-9E9A8558A848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeParser.MongoDb", "StackExchangeParser.MongoDb\StackExchangeParser.MongoDb.csproj", "{F53550CF-C4FE-40DA-A897-6D6BE188D9FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.MongoDb", "StackExchangeParser.MongoDb\StackExchangeParser.MongoDb.csproj", "{F53550CF-C4FE-40DA-A897-6D6BE188D9FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeParser.EF", "StackExchangeParser.EF\StackExchangeParser.EF.csproj", "{D263F7D2-238C-4D4B-A957-471DD2A5FE52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.EF", "StackExchangeParser.EF\StackExchangeParser.EF.csproj", "{D263F7D2-238C-4D4B-A957-471DD2A5FE52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeParser.Japanese", "StackExchangeParser.Japanese\StackExchangeParser.Japanese.csproj", "{B6DAE2E2-2605-452C-95B2-E33E5FB07D51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Japanese", "StackExchangeParser.Japanese\StackExchangeParser.Japanese.csproj", "{B6DAE2E2-2605-452C-95B2-E33E5FB07D51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeParser.ReverseEngineering", "StackExchangeParser.ReverseEngineering\StackExchangeParser.ReverseEngineering.csproj", "{FB0FA7F2-E642-4AA1-A1A5-79824818DDCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.ReverseEngineering", "StackExchangeParser.ReverseEngineering\StackExchangeParser.ReverseEngineering.csproj", "{FB0FA7F2-E642-4AA1-A1A5-79824818DDCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeParser.ML.Net", "StackEchangeParser.ML.Net\StackExchangeParser.ML.Net.csproj", "{FF44EE5E-182A-4BA2-BDC3-00132C42E223}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.ML.Net", "StackEchangeParser.ML.Net\StackExchangeParser.ML.Net.csproj", "{FF44EE5E-182A-4BA2-BDC3-00132C42E223}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{1F7C8D79-0254-4CAC-A252-A5AA601B1293}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeParser.Infrastructure", "StackExchangeParser.Infrastructure\StackExchangeParser.Infrastructure.csproj", "{19FA3013-FEDE-4DD0-886C-F3123D0B5C86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Infrastructure", "StackExchangeParser.Infrastructure\StackExchangeParser.Infrastructure.csproj", "{19FA3013-FEDE-4DD0-886C-F3123D0B5C86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeParser.Domain", "StackExchangeParser.Domain\StackExchangeParser.Domain.csproj", "{880A28BE-A19E-4EC3-87BB-31495B856659}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Domain", "StackExchangeParser.Domain\StackExchangeParser.Domain.csproj", "{880A28BE-A19E-4EC3-87BB-31495B856659}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeParser.Elasticsearch", "StackExchangeParser.Elasticsearch\StackExchangeParser.Elasticsearch.csproj", "{B046DF17-B155-4317-94B3-28AC43E6F6C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{880A28BE-A19E-4EC3-87BB-31495B856659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{880A28BE-A19E-4EC3-87BB-31495B856659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{880A28BE-A19E-4EC3-87BB-31495B856659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B046DF17-B155-4317-94B3-28AC43E6F6C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B046DF17-B155-4317-94B3-28AC43E6F6C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B046DF17-B155-4317-94B3-28AC43E6F6C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B046DF17-B155-4317-94B3-28AC43E6F6C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

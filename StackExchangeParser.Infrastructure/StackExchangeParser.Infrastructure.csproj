@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\StackExchangeParser.Domain\StackExchangeParser.Domain.csproj" />
     <ProjectReference Include="..\StackExchangeParser.EF\StackExchangeParser.EF.csproj" />
+    <ProjectReference Include="..\StackExchangeParser.Elasticsearch\StackExchangeParser.Elasticsearch.csproj" />
     <ProjectReference Include="..\StackExchangeParser.MongoDb\StackExchangeParser.MongoDb.csproj" />
   </ItemGroup>
 

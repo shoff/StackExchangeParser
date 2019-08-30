@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Elasticsearch.Net" Version="7.2.1" />
+    <PackageReference Include="NEST" Version="7.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StackExchangeParser.Domain\StackExchangeParser.Domain.csproj" />
+    <ProjectReference Include="..\StackExchangeParser.Japanese\StackExchangeParser.Japanese.csproj" />
+    <ProjectReference Include="..\StackExchangeParser.ReverseEngineering\StackExchangeParser.ReverseEngineering.csproj" />
+  </ItemGroup>
+
+</Project>
