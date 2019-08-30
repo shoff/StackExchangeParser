@@ -2,6 +2,7 @@
 {
     using AutoMapper;
     using Domain.Models;
+    using Elasticsearch.Models;
     using Users;
 
     public class StackExchangeUserProfile : Profile
@@ -12,6 +13,7 @@
             this.CreateMap<MongoDb.Entities.User, IUser>().ConvertUsing<MongoUserToDomainUser>();
             this.CreateMap<User, EF.Entities.User>().ConvertUsing<DomainUserToEFUser>();
             this.CreateMap<User, MongoDb.Entities.User>().ConvertUsing<DomainUserToMongoUser>();
+            this.CreateMap<IUser, ElasticUser>().ConvertUsing<IUserToElasticsearchUser>();
         }
     }
 }

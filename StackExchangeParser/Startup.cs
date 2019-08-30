@@ -27,15 +27,14 @@
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddOptions();
-            services.AddSingleton(factory => this.SerilogLoggerFactory);
-            services.AddLogging(configure => configure.AddSerilog());
-            services.Configure<EFConnection>(Configuration.GetSection("EFConnection"));
-            services.Configure<StackExchangeData>(Configuration.GetSection("StackExchangeData"));
-            services.Configure<MongoOptions>(Configuration.GetSection("MongoOptions"));
-
-            services.AddAutoMapper(typeof(StackExchangePostProfile).Assembly);
-            Ioc.ConfigureServices(services);
+            services.AddOptions()
+                .AddSingleton(factory => this.SerilogLoggerFactory)
+                .AddLogging(configure => configure.AddSerilog())
+                .Configure<EFConnection>(Configuration.GetSection("EFConnection"))
+                .Configure<StackExchangeData>(Configuration.GetSection("StackExchangeData"))
+                .Configure<MongoOptions>(Configuration.GetSection("MongoOptions"))
+                .AddAutoMapper(typeof(StackExchangePostProfile).Assembly)
+                .ConfigureServices();
 
             var sp = services.BuildServiceProvider();
 

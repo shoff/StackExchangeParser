@@ -1,7 +1,7 @@
 ﻿namespace StackExchangeParser.Configuration.TypeConverters.Users
 {
     using AutoMapper;
-    using EF.Entities;
+    using User = EF.Entities.User;
 
     public class EFUserToDomainUser : ITypeConverter<EF.Entities.User, Domain.Models.User>
     {

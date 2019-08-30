@@ -1,6 +1,8 @@
 ﻿namespace StackExchangeParser.Configuration.TypeConverters
 {
     using AutoMapper;
+    using Domain.Models;
+    using Elasticsearch.Models;
     using Tag;
 
     public class StackExchangeTagProfile : Profile
@@ -11,6 +13,7 @@
             this.CreateMap<Domain.Models.Tag, MongoDb.Entities.Tag>().ConvertUsing<DomainTagToMongoDb>();
             this.CreateMap<EF.Entities.Tag, Domain.Models.Tag>().ConvertUsing<EFTagToDomain>();
             this.CreateMap<MongoDb.Entities.Tag, Domain.Models.ITag>().ConvertUsing<MongoDbTagToDomain>();
+            this.CreateMap<ITag, ElasticTag>().ConvertUsing<ITagToElasticTag>();
         }
     }
 }

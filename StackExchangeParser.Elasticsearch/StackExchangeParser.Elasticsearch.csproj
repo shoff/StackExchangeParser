@@ -4,15 +4,38 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;USE_ELASTIC</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;USE_ELASTIC</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="Elasticsearch.Net" Version="7.2.1" />
     <PackageReference Include="NEST" Version="7.2.1" />
+    <PackageReference Include="Zatoichi.Common.Infrastructure" Version="2.0.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\StackExchangeParser.Domain\StackExchangeParser.Domain.csproj" />
     <ProjectReference Include="..\StackExchangeParser.Japanese\StackExchangeParser.Japanese.csproj" />
     <ProjectReference Include="..\StackExchangeParser.ReverseEngineering\StackExchangeParser.ReverseEngineering.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.logging.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options">
+      <HintPath>..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.options\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

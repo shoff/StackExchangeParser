@@ -3,6 +3,7 @@
     using System.Threading;
     using System.Threading.Tasks;
     using Domain;
+    using Elasticsearch;
     using Infrastructure;
     using Microsoft.Extensions.Logging;
 
@@ -19,6 +20,10 @@
         {
             this.logger = logger;
             this.stackExchangeRepository = stackExchangeRepository;
+
+#if USE_ELASTIC
+            ((SearchService)this.stackExchangeRepository).BulkIndex = false;
+#endif
             this.linqRepository = linqRepository;
         }
 
