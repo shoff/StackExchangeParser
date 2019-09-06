@@ -43,7 +43,6 @@
             this.HighLevelClient = new ElasticClient(this.serverUri);
         }
         
-
         public Task EnsureNewIndexIsCreatedAsync(string name, Func<CreateIndexDescriptor, ICreateIndexRequest> selector)
         {
             if (this.HighLevelClient.Indices.Exists(name).Exists)
