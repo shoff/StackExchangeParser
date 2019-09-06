@@ -3,6 +3,7 @@
     using System;
     using System.Threading.Tasks;
     using Configuration;
+    using Domain;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Serilog;
@@ -31,8 +32,10 @@
             Configuration = configuration.Build();
             Log.Logger = BuildLogger();
 
+#pragma warning disable 618
             var serviceProvider = new Startup(Configuration, 
-                    new SerilogLoggerFactory(Log.Logger)).ConfigureServices(services);
+                new SerilogLoggerFactory(Log.Logger)).ConfigureServices(services);
+#pragma warning restore 618
 
             if (args != null && args.Length > 2)
             {

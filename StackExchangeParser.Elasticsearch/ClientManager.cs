@@ -5,28 +5,21 @@
     using Configuration;
     using global::Elasticsearch.Net;
     using Infrastructure;
-    using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
     using Nest;
-    using ConnectionSettings = Nest.ConnectionSettings;
 
     public class ClientManager : IClientManager
     {
-        private readonly IOptions<ElasticSearch> elasticOptions;
-        private readonly IOptions<ElasticSearch> options;
-        private readonly ILogger<ClientManager> logger;
         private readonly IConnectionSettings connectionSettings;
         private readonly Uri serverUri;
 
         public ClientManager(
             IOptions<ElasticSearch> options,
-            ILogger<ClientManager> logger,
             IConnectionSettings connectionSettings)
         {
-            this.options = options;
-            this.logger = logger;
+           
             this.connectionSettings = connectionSettings;
-            this.serverUri = new Uri($"{this.options.Value.Scheme}{this.options.Value.Server}:{this.options.Value.Port}");
+            this.serverUri = new Uri($"{options.Value.Scheme}{options.Value.Server}:{options.Value.Port}");
             this.CreateClients();
         }
 

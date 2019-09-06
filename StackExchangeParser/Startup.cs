@@ -19,7 +19,9 @@
 
         public Startup(
             IConfiguration configuration, 
+#pragma warning disable 618
             SerilogLoggerFactory serilogLoggerFactory)
+#pragma warning restore 618
         {
             this.Configuration = configuration;
             this.SerilogLoggerFactory = serilogLoggerFactory;
@@ -47,6 +49,8 @@
         }
 
         public IConfiguration Configuration { get; }
+#pragma warning disable 618
         public SerilogLoggerFactory SerilogLoggerFactory { get; }
+#pragma warning restore 618
     }
 }

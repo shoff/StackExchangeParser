@@ -7,14 +7,16 @@
 
     public interface ISearchService
     {
+        int FinalFailureCount { get; set; }
+        int TotalFailures { get; }
         bool BulkIndex { get; set; }
-        ICollection<IPost> Posts();
-        ICollection<IUser> Users();
-        ICollection<IComment> Comments();
-        ICollection<ITag> Tags();
-        ICollection<IBadge> Badges();
-        ICollection<IPostHistory> PostHistories();
-        ICollection<IVote> Votes();
+        Queue<object> FailedChunks { get; }
+        int ErrorCountBreakPoint { get; set; }
+        int DocumentThresholdAdjustment { get; set; }
+        bool RetryFailedChunks { get; set; }
+        bool SaveFailedDocumentsToDisk { get; set; }
+        string FailedDirectory { get; set; }
+        int MaximumNumberOfDocumentsPerInsert { get; }
         Task AddUsersAsync(ICollection<IUser> users, CancellationToken cancellationToken);
         Task AddPostsAsync(ICollection<IPost> posts, CancellationToken cancellationToken);
         Task AddCommentsAsync(ICollection<IComment> comments, CancellationToken cancellationToken);

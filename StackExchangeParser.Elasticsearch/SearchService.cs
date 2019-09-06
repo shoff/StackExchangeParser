@@ -7,11 +7,9 @@
     using System.Threading;
     using System.Threading.Tasks;
     using AutoMapper;
-    using Domain;
     using Domain.Configuration;
     using Domain.Extensions;
     using Domain.Models;
-    using global::Elasticsearch.Net;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
     using Models;
@@ -20,7 +18,7 @@
     using Zatoichi.Common.Infrastructure.Extensions;
     using Bytes = Domain.Extensions.Bytes;
 
-    public class SearchService : ISearchService, IStackExchangeRepository
+    public class SearchService : ISearchService
     {
         private static readonly Random random = new Random((int)DateTime.UtcNow.Ticks);
 
@@ -31,8 +29,6 @@
         private readonly IMapper mapper;
         private readonly string projectName;
         private int errorCount;
-        private int maximumNumberOfDocumentsPerInsert;
-        private static int chunkIterationSize = 100;
 
         public SearchService(
             IOptions<StackExchangeData> options,
@@ -47,43 +43,6 @@
 #if DEBUG
             this.logger.LogDebug($"{this.clientManager.HighLevelClient.Cluster.Health()}");
 #endif
-        }
-
-        public bool BulkIndex { get; set; } = true;
-
-        public ICollection<IPost> Posts()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<IUser> Users()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<IComment> Comments()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<ITag> Tags()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<IBadge> Badges()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<IPostHistory> PostHistories()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<IVote> Votes()
-        {
-            throw new NotImplementedException();
         }
 
         public async Task AddUsersAsync(ICollection<IUser> users, CancellationToken cancellationToken)
@@ -221,6 +180,8 @@
                 if (response.OriginalException != null || !response.IsValid)
                 {
                     Interlocked.Increment(ref this.errorCount);
+                    this.TotalFailures++;
+                    this.FinalFailureCount++;
                     this.logger.LogError(
                         $"Error occured while indexing on chunk number {chunk.Key}, current error count: {this.errorCount}");
 
@@ -241,7 +202,7 @@
                 else
                 {
                     this.logger.LogInformation(
-                        $"Bulk insert of {this.maximumNumberOfDocumentsPerInsert} documents succeeded: {response.IsValid}");
+                        $"Bulk insert of {this.MaximumNumberOfDocumentsPerInsert} documents succeeded: {response.IsValid}");
                 }
             }
 
@@ -287,6 +248,7 @@
                         }
                         else
                         {
+                            this.FinalFailureCount--;
                             this.logger.LogInformation("Completed indexing failed chunk");
                         }
                     }
@@ -313,27 +275,27 @@
         {
             var chunks = new Dictionary<int, T[]>();
 
-            this.maximumNumberOfDocumentsPerInsert = this.CalculateMaxDocuments(indexables) - this.DocumentThresholdAdjustment;
-            if (this.maximumNumberOfDocumentsPerInsert < this.DocumentThresholdAdjustment)
+            this.MaximumNumberOfDocumentsPerInsert = this.CalculateMaxDocuments(indexables) - this.DocumentThresholdAdjustment;
+            if (this.MaximumNumberOfDocumentsPerInsert < this.DocumentThresholdAdjustment)
             {
                 this.logger.LogWarning(
                     $"Bulk inserts are limited to {this.DocumentThresholdAdjustment} documents per insert. Please ensure the health of the cluster.");
-                this.maximumNumberOfDocumentsPerInsert = this.DocumentThresholdAdjustment;
+                this.MaximumNumberOfDocumentsPerInsert = this.DocumentThresholdAdjustment;
             }
 
-            if (indexables.Length <= this.maximumNumberOfDocumentsPerInsert)
+            if (indexables.Length <= this.MaximumNumberOfDocumentsPerInsert)
             {
                 return new Dictionary<int, T[]> { { 1, indexables } };
             }
 
-            var splitCount = (double)indexables.Length / this.maximumNumberOfDocumentsPerInsert;
+            var splitCount = (double)indexables.Length / this.MaximumNumberOfDocumentsPerInsert;
             var chunkCount = Convert.ToInt32(Math.Truncate(splitCount)) + 1;
 
             for (var i = 0; i < chunkCount; i++)
             {
                 chunks.Add(i,
-                    indexables.Skip(i * this.maximumNumberOfDocumentsPerInsert)
-                        .Take(this.maximumNumberOfDocumentsPerInsert).ToArray());
+                    indexables.Skip(i * this.MaximumNumberOfDocumentsPerInsert)
+                        .Take(this.MaximumNumberOfDocumentsPerInsert).ToArray());
             }
 
             return chunks;
@@ -407,6 +369,12 @@
             });
         }
 
+        public int TotalFailures { get; private set; }
+
+        public int FinalFailureCount { get; set; }
+
+        public bool BulkIndex { get; set; } = true;
+
         public Queue<object> FailedChunks { get; } = new Queue<object>();
 
         // at this point we will reset the error count and lower the max docs per insert count.
@@ -415,18 +383,16 @@
         // the number to decrease documents in the event of error count breaching
         // we will get the difference each chunk as the actual count and increment this when breaching error threshold
         public int DocumentThresholdAdjustment { get; set; }
+
         public bool RetryFailedChunks { get; set; } = true;
 
-        public static int ChunkIterationSize
-        {
-            get => chunkIterationSize;
-            set => chunkIterationSize = value;
-        }
+        public static int ChunkIterationSize { get; set; } = 100;
 
         public static int MaximumChunkSize { get; set; } = 5000;
 
         public bool SaveFailedDocumentsToDisk { get; set; } = true;
         public string FailedDirectory { get; set; } = "Failed";
+        public int MaximumNumberOfDocumentsPerInsert { get; private set; }
 
         static SearchService()
         {
@@ -435,7 +401,7 @@
             // max document size is 16 Mb
             for (int i = 1; i < 17; i++)
             {
-                size = size - chunkIterationSize;
+                size = size - ChunkIterationSize;
                 bulkCount.Add(i, size);
             }
         }

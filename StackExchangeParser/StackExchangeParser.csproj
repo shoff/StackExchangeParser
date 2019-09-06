@@ -47,9 +47,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Data\StackExchangeParser.DataScience\StackExchangeParser.DataScience.csproj" />
+    <ProjectReference Include="..\Data\StackExchangeParser.Japanese\StackExchangeParser.Japanese.csproj" />
+    <ProjectReference Include="..\Data\StackExchangeParser.ReverseEngineering\StackExchangeParser.ReverseEngineering.csproj" />
     <ProjectReference Include="..\StackEchangeParser.ML.Net\StackExchangeParser.ML.Net.csproj" />
     <ProjectReference Include="..\StackExchangeParser.Domain\StackExchangeParser.Domain.csproj" />
     <ProjectReference Include="..\StackExchangeParser.EF\StackExchangeParser.EF.csproj" />
+    <ProjectReference Include="..\StackExchangeParser.Elasticsearch\StackExchangeParser.Elasticsearch.csproj" />
     <ProjectReference Include="..\StackExchangeParser.MongoDb\StackExchangeParser.MongoDb.csproj" />
   </ItemGroup>
 
