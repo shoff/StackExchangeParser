@@ -1,16 +1,13 @@
 ﻿namespace StackExchangeParser.Elasticsearch.Infrastructure
 {
-    using global::Elasticsearch.Net;
-
-    public class LowLevelClient : ElasticLowLevelClient
+    public class HighLevelClient : Nest.ElasticClient
     {
         private readonly IConnectionSettings connectionSettings;
 
-        public LowLevelClient(IConnectionSettings connectionSettings)
+        public HighLevelClient(IConnectionSettings connectionSettings)
             : base(connectionSettings as ConnectionSettings)
         {
             this.connectionSettings = connectionSettings;
         }
-
     }
 }

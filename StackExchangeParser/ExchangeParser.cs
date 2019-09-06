@@ -22,7 +22,7 @@
             this.stackExchangeRepository = stackExchangeRepository;
 
 #if USE_ELASTIC
-            ((SearchService)this.stackExchangeRepository).BulkIndex = false;
+            ((SearchService)this.stackExchangeRepository).BulkIndex = true;
 #endif
             this.linqRepository = linqRepository;
         }

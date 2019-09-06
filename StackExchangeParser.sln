@@ -9,10 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.MongoDb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.EF", "StackExchangeParser.EF\StackExchangeParser.EF.csproj", "{D263F7D2-238C-4D4B-A957-471DD2A5FE52}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Japanese", "StackExchangeParser.Japanese\StackExchangeParser.Japanese.csproj", "{B6DAE2E2-2605-452C-95B2-E33E5FB07D51}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.ReverseEngineering", "StackExchangeParser.ReverseEngineering\StackExchangeParser.ReverseEngineering.csproj", "{FB0FA7F2-E642-4AA1-A1A5-79824818DDCF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.ML.Net", "StackEchangeParser.ML.Net\StackExchangeParser.ML.Net.csproj", "{FF44EE5E-182A-4BA2-BDC3-00132C42E223}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{1F7C8D79-0254-4CAC-A252-A5AA601B1293}"
@@ -21,7 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Infrast
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Domain", "StackExchangeParser.Domain\StackExchangeParser.Domain.csproj", "{880A28BE-A19E-4EC3-87BB-31495B856659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeParser.Elasticsearch", "StackExchangeParser.Elasticsearch\StackExchangeParser.Elasticsearch.csproj", "{B046DF17-B155-4317-94B3-28AC43E6F6C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Elasticsearch", "StackExchangeParser.Elasticsearch\StackExchangeParser.Elasticsearch.csproj", "{B046DF17-B155-4317-94B3-28AC43E6F6C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeParser.Api", "StackExchangeParser.Api\StackExchangeParser.Api.csproj", "{6BEEED47-7A30-4808-9186-EA2618D3DF3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Japanese", "Data\StackExchangeParser.Japanese\StackExchangeParser.Japanese.csproj", "{C5CC33C8-F017-49FC-BC79-AA4FA2DA7CB4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.ReverseEngineering", "Data\StackExchangeParser.ReverseEngineering\StackExchangeParser.ReverseEngineering.csproj", "{94278A18-6C35-4C5C-B344-BF81092024DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.DataScience", "Data\StackExchangeParser.DataScience\StackExchangeParser.DataScience.csproj", "{A5A7F2D0-F69E-40CC-86E6-2DEABE4A6C43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,14 +45,6 @@ Global
 		{D263F7D2-238C-4D4B-A957-471DD2A5FE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D263F7D2-238C-4D4B-A957-471DD2A5FE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D263F7D2-238C-4D4B-A957-471DD2A5FE52}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B6DAE2E2-2605-452C-95B2-E33E5FB07D51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6DAE2E2-2605-452C-95B2-E33E5FB07D51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6DAE2E2-2605-452C-95B2-E33E5FB07D51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6DAE2E2-2605-452C-95B2-E33E5FB07D51}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB0FA7F2-E642-4AA1-A1A5-79824818DDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB0FA7F2-E642-4AA1-A1A5-79824818DDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB0FA7F2-E642-4AA1-A1A5-79824818DDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB0FA7F2-E642-4AA1-A1A5-79824818DDCF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF44EE5E-182A-4BA2-BDC3-00132C42E223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF44EE5E-182A-4BA2-BDC3-00132C42E223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF44EE5E-182A-4BA2-BDC3-00132C42E223}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,13 +61,30 @@ Global
 		{B046DF17-B155-4317-94B3-28AC43E6F6C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B046DF17-B155-4317-94B3-28AC43E6F6C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B046DF17-B155-4317-94B3-28AC43E6F6C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BEEED47-7A30-4808-9186-EA2618D3DF3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BEEED47-7A30-4808-9186-EA2618D3DF3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BEEED47-7A30-4808-9186-EA2618D3DF3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BEEED47-7A30-4808-9186-EA2618D3DF3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5CC33C8-F017-49FC-BC79-AA4FA2DA7CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5CC33C8-F017-49FC-BC79-AA4FA2DA7CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5CC33C8-F017-49FC-BC79-AA4FA2DA7CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5CC33C8-F017-49FC-BC79-AA4FA2DA7CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94278A18-6C35-4C5C-B344-BF81092024DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94278A18-6C35-4C5C-B344-BF81092024DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94278A18-6C35-4C5C-B344-BF81092024DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94278A18-6C35-4C5C-B344-BF81092024DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5A7F2D0-F69E-40CC-86E6-2DEABE4A6C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5A7F2D0-F69E-40CC-86E6-2DEABE4A6C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5A7F2D0-F69E-40CC-86E6-2DEABE4A6C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5A7F2D0-F69E-40CC-86E6-2DEABE4A6C43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B6DAE2E2-2605-452C-95B2-E33E5FB07D51} = {1F7C8D79-0254-4CAC-A252-A5AA601B1293}
-		{FB0FA7F2-E642-4AA1-A1A5-79824818DDCF} = {1F7C8D79-0254-4CAC-A252-A5AA601B1293}
+		{C5CC33C8-F017-49FC-BC79-AA4FA2DA7CB4} = {1F7C8D79-0254-4CAC-A252-A5AA601B1293}
+		{94278A18-6C35-4C5C-B344-BF81092024DD} = {1F7C8D79-0254-4CAC-A252-A5AA601B1293}
+		{A5A7F2D0-F69E-40CC-86E6-2DEABE4A6C43} = {1F7C8D79-0254-4CAC-A252-A5AA601B1293}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82F508ED-D497-4302-BCDF-CB69A1F93137}

@@ -21,12 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StackExchangeParser.Domain\StackExchangeParser.Domain.csproj" />
-    <ProjectReference Include="..\StackExchangeParser.Japanese\StackExchangeParser.Japanese.csproj" />
-    <ProjectReference Include="..\StackExchangeParser.ReverseEngineering\StackExchangeParser.ReverseEngineering.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Infrastructure\" />
   </ItemGroup>
 
   <ItemGroup>
