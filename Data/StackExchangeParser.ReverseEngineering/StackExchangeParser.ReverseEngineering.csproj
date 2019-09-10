@@ -5,58 +5,58 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="reverse\Badges.xml">
+    <None Update="reverseengineering\Badges.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse\Comments.xml">
+    <None Update="reverseengineering\Comments.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse.meta\Badges.xml">
+    <None Update="reverseengineering.meta\Badges.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse.meta\Comments.xml">
+    <None Update="reverseengineering.meta\Comments.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse.meta\PostHistory.xml">
+    <None Update="reverseengineering.meta\PostHistory.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse.meta\PostLinks.xml">
+    <None Update="reverseengineering.meta\PostLinks.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse.meta\Posts.xml">
+    <None Update="reverseengineering.meta\Posts.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse.meta\Tags.xml">
+    <None Update="reverseengineering.meta\Tags.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse.meta\Users.xml">
+    <None Update="reverseengineering.meta\Users.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse.meta\Votes.xml">
+    <None Update="reverseengineering.meta\Votes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse\PostHistory.xml">
+    <None Update="reverseengineering\PostHistory.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse\PostLinks.xml">
+    <None Update="reverseengineering\PostLinks.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse\Posts.xml">
+    <None Update="reverseengineering\Posts.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse\Tags.xml">
+    <None Update="reverseengineering\Tags.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse\Users.xml">
+    <None Update="reverseengineering\Users.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="reverse\Votes.xml">
+    <None Update="reverseengineering\Votes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="reverse.meta\" />
+    <Folder Include="reverseengineering.meta\" />
   </ItemGroup>
 
 </Project>

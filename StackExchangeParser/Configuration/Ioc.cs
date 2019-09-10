@@ -24,7 +24,7 @@
             services.AddTransient<IVoteParser, VoteParser>();
             services.ConfigureSearch();
             services.AddSingleton<IClientManager, ClientManager>();
-            services.AddSingleton<IStackExchangeRepository, SearchService>();
+            services.AddSingleton<ISearchService, SearchService>();
             services.AddTransient<IXLinqRepository, XLinqRepository>();
 
             services.AddTransient<IMLData, MLData>();
