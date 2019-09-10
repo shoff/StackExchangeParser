@@ -5,7 +5,7 @@
     using Configuration;
     using Configuration.TypeConverters;
     using Domain.Configuration;
-    using EF;
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -39,11 +39,6 @@
                 .ConfigureServices();
 
             var sp = services.BuildServiceProvider();
-
-            var connection = sp.GetRequiredService<IOptions<EFConnection>>();
-
-            services.AddDbContext<StackExchangeDbContext>(options =>
-                options.UseSqlServer(connection.Value.ConnectionString));
 
             return sp;
         }

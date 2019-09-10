@@ -9,9 +9,7 @@
     {
         public StackExchangeVoteProfile()
         {
-            this.CreateMap<Vote, EF.Entities.Vote>().ConvertUsing<DomainVoteToEF>();
             this.CreateMap<Vote, MongoDb.Entities.Vote>().ConvertUsing<DomainVoteToMongoDb>();
-            this.CreateMap<EF.Entities.Vote, Vote>().ConvertUsing<EFVoteToDomain>();
             this.CreateMap<MongoDb.Entities.Vote, IVote>().ConvertUsing<MongoDbVoteToDomain>();
             this.CreateMap<IVote, ElasticVote>().ConvertUsing<IVoteToElasticVote>();
         }

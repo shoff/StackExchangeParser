@@ -37,11 +37,6 @@
                 new SerilogLoggerFactory(Log.Logger)).ConfigureServices(services);
 #pragma warning restore 618
 
-            if (args != null && args.Length > 2)
-            {
-                Seeder.SeedDatabase(serviceProvider);
-            }
-
             Log.Information("Starting parsing");
             var parser = serviceProvider.GetRequiredService<IExchangeParser>();
 

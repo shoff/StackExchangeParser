@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser", "Stac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.MongoDb", "StackExchangeParser.MongoDb\StackExchangeParser.MongoDb.csproj", "{F53550CF-C4FE-40DA-A897-6D6BE188D9FA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.EF", "StackExchangeParser.EF\StackExchangeParser.EF.csproj", "{D263F7D2-238C-4D4B-A957-471DD2A5FE52}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.ML.Net", "StackEchangeParser.ML.Net\StackExchangeParser.ML.Net.csproj", "{FF44EE5E-182A-4BA2-BDC3-00132C42E223}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{1F7C8D79-0254-4CAC-A252-A5AA601B1293}"
@@ -19,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Domain"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Elasticsearch", "StackExchangeParser.Elasticsearch\StackExchangeParser.Elasticsearch.csproj", "{B046DF17-B155-4317-94B3-28AC43E6F6C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeParser.Api", "StackExchangeParser.Api\StackExchangeParser.Api.csproj", "{6BEEED47-7A30-4808-9186-EA2618D3DF3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Api", "StackExchangeParser.Api\StackExchangeParser.Api.csproj", "{6BEEED47-7A30-4808-9186-EA2618D3DF3C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExchangeParser.Japanese", "Data\StackExchangeParser.Japanese\StackExchangeParser.Japanese.csproj", "{C5CC33C8-F017-49FC-BC79-AA4FA2DA7CB4}"
 EndProject
@@ -41,10 +39,6 @@ Global
 		{F53550CF-C4FE-40DA-A897-6D6BE188D9FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F53550CF-C4FE-40DA-A897-6D6BE188D9FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F53550CF-C4FE-40DA-A897-6D6BE188D9FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D263F7D2-238C-4D4B-A957-471DD2A5FE52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D263F7D2-238C-4D4B-A957-471DD2A5FE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D263F7D2-238C-4D4B-A957-471DD2A5FE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D263F7D2-238C-4D4B-A957-471DD2A5FE52}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF44EE5E-182A-4BA2-BDC3-00132C42E223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF44EE5E-182A-4BA2-BDC3-00132C42E223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF44EE5E-182A-4BA2-BDC3-00132C42E223}.Release|Any CPU.ActiveCfg = Release|Any CPU
